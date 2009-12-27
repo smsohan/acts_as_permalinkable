@@ -71,7 +71,6 @@ In your model:
 
 You can use any method of your model that returns a string for generating the permalink. You do not
 need to take care of escaping or stripping your methods. Just return a string, possibly with spaces.
-permalink_method
 
 In your model:
 
