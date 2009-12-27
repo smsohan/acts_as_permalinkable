@@ -8,6 +8,8 @@ according to google's SEO starter guide.
 
 
 ==Quick Start
+Install acts_as_permalinkable plugin:
+	script/plugin install git://github.com/smsohan/acts_as_permalinkable.git
 
 Generate migration:
 	script/generate permalink Service
@@ -47,23 +49,29 @@ permalink whenever called by link_to and similmar helper methods.
 
 ==Configuration options
 Using a different field other than the default 'permalink':
+
 Generate migration:
   script/generate permalink Service my_custom_permalink_field
 This will create db/migrate/timestamp_add_my_custom_permalink_field_to_services.rb	
+
 In your model:
   class Service < ActiveRecord::Base
     acts_as_permalinkable :permalink_field_name => :my_custom_permalink_field
   end
 
 Using a different method other than the default 'name':
+
 You can use any method of your model that returns a string for generating the permalink. You do not
 need to take care of escaping or stripping your methods. Just return a string, possibly with spaces.
 permalink_method
+
 In your model:
 class Service < ActiveRecord::Base
   acts_as_permalinkable :permalink_method => :title
 end
+
 or
+
 class Service < ActiveRecord::Base
   acts_as_permalinkable :permalink_method => :my_custom_method
   def my_custom_method
@@ -72,17 +80,21 @@ class Service < ActiveRecord::Base
 end
 
 Setting a limit for the length (default is 200 characters) of 'permalink':
+
 In your model:
+
 class Service < ActiveRecord::Base
   acts_as_permalinkable :length => :100
 end
 
 Taking full control over permalinkable text:
+
 At times, you might want to combine a few columns or need some manipulation on your model's
 data to generate the permalinkable text. You can do it by overriding the permalinkable_text method. 
 Just return a string from this method, possibly with spaces.
 
 In your model:
+
 class Service < ActiveRecord::Base
   acts_as_permalinkable
   
