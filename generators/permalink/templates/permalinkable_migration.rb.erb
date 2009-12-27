@@ -1,0 +1,9 @@
+class <%= migration_name %> < ActiveRecord::Migration
+  def self.up
+		add_column :<%= class_name.underscore.camelize.tableize %>, :<%= permalink_field_name %>, :string
+  end
+
+  def self.down
+		remove_column :<%= class_name.underscore.camelize.tableize %>, :<%= permalink_field_name %>
+  end
+end
