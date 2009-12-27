@@ -73,7 +73,9 @@ In your model:
 class Service < ActiveRecord::Base
   acts_as_permalinkable :permalink_method => :title
 end
+
 or
+
 class Service < ActiveRecord::Base
   acts_as_permalinkable :permalink_method => :my_custom_method
   def my_custom_method
