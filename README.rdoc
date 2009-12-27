@@ -38,7 +38,7 @@ In your controller:
 
 The acts_as_permalinkable plugin works in a simple way. It creates a new column 'permalink'
 to you model. And puts an after_create hook to generate the permalink based on a field
-called 'name' of whatever you specify. The permalink always starts with "<model.id>-". Having this
+called 'name' or whatever you specify. The permalink always starts with "<model.id>-". Having this
 ensures Model.find(params[:id]) still works as usual. This works because, the find method
 does a to_i to its argument and the to_i method by default strips a string to extract only the leading
 integers.
@@ -69,13 +69,11 @@ In your model:
 class Service < ActiveRecord::Base
   acts_as_permalinkable :permalink_method => :title
 end
-
 or
-
 class Service < ActiveRecord::Base
   acts_as_permalinkable :permalink_method => :my_custom_method
   def my_custom_method
-	'my custom permalink text'
+    'my custom permalink text'
   end
 end
 
@@ -96,10 +94,8 @@ Just return a string from this method, possibly with spaces.
 In your model:
 
 class Service < ActiveRecord::Base
-  acts_as_permalinkable
-  
+  acts_as_permalinkable  
   def permalinkable_text
     "#{self.id}  #{self.title} #{self.service_provider_name} #{self.city}"
   end
-
 end
