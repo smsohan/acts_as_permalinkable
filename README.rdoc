@@ -15,20 +15,24 @@ Generate migration:
 	script/generate permalink Service
 
 This will create db/migrate/timestamp_add_permalink_to_services.rb	
+
 Run migration:
 	rake db:migrate
 
 In your model:
+
   class Service < ActiveRecord::Base
 	acts_as_permalinkable
   end
 
 In your views:
+
   <%= link_to service_path(service) %>
   instead of
   <%= link_to service_path(service.id) %>
 
 In your controller:
+
   def show
     @service = Service.find( params[:id] )
   end
@@ -48,7 +52,8 @@ permalink whenever called by link_to and similmar helper methods.
 
 
 ==Configuration options
-Using a different field other than the default 'permalink':
+
+<b>Using a different field other than the default 'permalink'</b>:
 
 Generate migration:
 
@@ -62,7 +67,7 @@ In your model:
     acts_as_permalinkable :permalink_field_name => :my_custom_permalink_field
   end
 
-Using a different method other than the default 'name':
+<b>Using a different method other than the default 'name'</b>:
 
 You can use any method of your model that returns a string for generating the permalink. You do not
 need to take care of escaping or stripping your methods. Just return a string, possibly with spaces.
@@ -82,7 +87,7 @@ or
   end
 
 
-Setting a limit for the length (default is 200 characters) of 'permalink':
+<b>Setting a limit for the length (default is 200 characters) of 'permalink'</b>:
 
 In your model:
 
@@ -91,7 +96,7 @@ In your model:
   end
 
 
-Taking full control over permalinkable text:
+<b>Taking full control over permalinkable text</b>:
 
 At times, you might want to combine a few columns or need some manipulation on your model's
 data to generate the permalinkable text. You can do it by overriding the permalinkable_text method. 
