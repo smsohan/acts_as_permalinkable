@@ -2,7 +2,7 @@
 
 acts_as_permalinkable is intended to be a simple don't repeat yourself way to
 implement SEO friendly urls for your Ruby on Rails ActiveRecord models. Using this plugin you
-can generate urls like [\*services/1-car-rental-services-of-Dhaka*]
+can generate urls like *services/1-car-rental-services-of-Dhaka*
 instead of services/1. Such urls are supposed to be search engine friendly
 according to google's SEO starter guide. 
 
