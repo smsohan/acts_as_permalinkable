@@ -74,21 +74,21 @@ In your model:
 
 or
 
-class Service < ActiveRecord::Base
-  acts_as_permalinkable :permalink_method => :my_custom_method
-  def my_custom_method
-    'my custom permalink text'
+  class Service < ActiveRecord::Base
+	acts_as_permalinkable :permalink_method => :my_custom_method
+	def my_custom_method
+	  'my custom permalink text'
+	end
   end
-end
 
 
 Setting a limit for the length (default is 200 characters) of 'permalink':
 
 In your model:
 
-class Service < ActiveRecord::Base
-  acts_as_permalinkable :length => :100
-end
+  class Service < ActiveRecord::Base
+	acts_as_permalinkable :length => :100
+  end
 
 
 Taking full control over permalinkable text:
@@ -99,10 +99,10 @@ Just return a string from this method, possibly with spaces.
 
 In your model:
 
-	class Service < ActiveRecord::Base
-	  acts_as_permalinkable  
-	  def permalinkable_text
-	    "#{self.id}  #{self.title} #{self.service_provider_name} #{self.city}"
-	  end
+  class Service < ActiveRecord::Base
+	acts_as_permalinkable  
+	def permalinkable_text
+	  "#{self.id}  #{self.title} #{self.service_provider_name} #{self.city}"
 	end
+  end
 
