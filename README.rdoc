@@ -51,10 +51,13 @@ permalink whenever called by link_to and similmar helper methods.
 Using a different field other than the default 'permalink':
 
 Generate migration:
+
   script/generate permalink Service my_custom_permalink_field
+
 This will create db/migrate/timestamp_add_my_custom_permalink_field_to_services.rb	
 
 In your model:
+
   class Service < ActiveRecord::Base
     acts_as_permalinkable :permalink_field_name => :my_custom_permalink_field
   end
@@ -66,6 +69,7 @@ need to take care of escaping or stripping your methods. Just return a string, p
 permalink_method
 
 In your model:
+
 class Service < ActiveRecord::Base
   acts_as_permalinkable :permalink_method => :title
 end
@@ -77,6 +81,7 @@ class Service < ActiveRecord::Base
   end
 end
 
+
 Setting a limit for the length (default is 200 characters) of 'permalink':
 
 In your model:
@@ -84,6 +89,7 @@ In your model:
 class Service < ActiveRecord::Base
   acts_as_permalinkable :length => :100
 end
+
 
 Taking full control over permalinkable text:
 
@@ -99,3 +105,4 @@ class Service < ActiveRecord::Base
     "#{self.id}  #{self.title} #{self.service_provider_name} #{self.city}"
   end
 end
+
